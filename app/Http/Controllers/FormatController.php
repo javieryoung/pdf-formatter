@@ -32,7 +32,7 @@ class FormatController extends Controller
     $page_path = $path;
 
     $com = new Command('/usr/local/bin');
-    $im = $com->convert($page_path)->file('page.jpg', false)->run();
+    $im = $com->convert($page_path)->file('page-%d.jpg', false)->run();
     $output = $im;
     //$images[] = base64_encode($im);
     for ($i = 0; $i < $pages; $i++) {
