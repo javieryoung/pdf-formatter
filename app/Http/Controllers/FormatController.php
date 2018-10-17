@@ -19,6 +19,11 @@ class FormatController extends Controller
     $c = $this->getDirContents(public_path() . '/files');
 
     $path = $c[0];
+    while(is_dir($path)) {
+      unlink($path);
+      $c = $this->getDirContents(public_path() . '/files');
+      $path = $c[0]
+    }
     $pdf = new Fpdi;
     $pages = $pdf->setSourceFile($path);
 
