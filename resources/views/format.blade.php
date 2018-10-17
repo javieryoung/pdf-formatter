@@ -121,7 +121,7 @@
       }
 
 
-      $('#nextPage').on('click', function() {
+      var nextClicked = function() {
         finishPage();
         if (currentPage == images.length-1){
           edits.title = $('#title').val();
@@ -146,11 +146,23 @@
         if (currentPage == images.length-1)
           $('#nextPage').html('Finalizar');
 
-      })
-      $('#deletePage').on('click', function() {
+      }
+
+      var deleteClicked = function() {
         edits.deleted.push(currentPage);
         loadPage(currentPage+1);
-      })
+      }
+
+      $( "body" ).keypress(function( event ) {
+        if ( event.which == 110 ) {
+           nextClicked();
+        }
+        if ( event.which == 101 ) {
+           deleteClicked();
+        }
+      });
+      $('#nextPage').on('click', nextClicked)
+      $('#deletePage').on('click', deleteClicked);
       $('#deleteTitle').on('click', function() {
         $('#title').val('');
       })
