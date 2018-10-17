@@ -20,9 +20,9 @@ class FormatController extends Controller
 
     $path = $c[0];
     while(is_dir($path)) {
-      unlink($path);
+      rmdir($path);
       $c = $this->getDirContents(public_path() . '/files');
-      $path = $c[0]
+      $path = $c[0];
     }
     $pdf = new Fpdi;
     $pages = $pdf->setSourceFile($path);
@@ -40,13 +40,14 @@ class FormatController extends Controller
       $data = file_get_contents($img_path);
       $base64 = 'data:image/jpg;base64,' . base64_encode($data);
       $images[] = $base64;
+      unlink($img_path);
     }
 
     return view('format', ["data" => [
       "images" => json_encode($images),
       "year" => $this->extract_year(basename($path)),
       "title" => $this->extract_title(basename($path)),
-      "debug" => '',
+      "debug" => $path,
       "path" => $path
       ]]);
   }

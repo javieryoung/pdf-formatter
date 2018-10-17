@@ -13,7 +13,8 @@
         "laravel/tinker": "^1.0",
         "orbitale/imagemagick-php": "^2.0",
         "setasign/fpdf": "^1.8",
-        "setasign/fpdi": "^2.1"
+        "setasign/fpdi": "^2.1",
+        "symfony/yaml": "^4.1"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
