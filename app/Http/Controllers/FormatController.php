@@ -8,6 +8,7 @@ use \setasign\Fpdi\Fpdi;
 use Illuminate\Http\Request;
 use Imagick;
 use Orbitale\Component\ImageMagick\Command;
+use Exception;
 
 class FormatController extends Controller
 {
@@ -15,7 +16,7 @@ class FormatController extends Controller
   public function __construct() {}
 
   public function get_files() {
-
+    try {
     $c = $this->getDirContents(public_path() . '/files');
 
     $path = $c[0];
@@ -50,6 +51,15 @@ class FormatController extends Controller
       "debug" => $path,
       "path" => $path
       ]]);
+    } catch (Exception $e) {
+      return view('format', ["data" => [
+        "images" => json_encode([]),
+        "year" => '',
+        "title" => '',
+        "debug" => $path,
+        "path" => $path
+      ]]);
+    }
   }
 
   private function extract_title($str) {
