@@ -69,6 +69,30 @@ class FormatController extends Controller
     $ret = str_replace('CBC', '', $ret);
     $ret = str_replace('(UBA)', '', $ret);
     $ret = str_replace('UBA', '', $ret);
+
+    $ret = str_replace('Ciencias Políticas', '', $ret);
+    $ret = str_replace('Conocimiento Proyectual 1', '', $ret);
+    $ret = str_replace('Conocimiento Proyectual 2', '', $ret);
+    $ret = str_replace('Derecho', '', $ret);
+    $ret = str_replace('Derechos Humanos y Derecho Constitucional', '', $ret);
+    $ret = str_replace('Dibujo', '', $ret);
+    $ret = str_replace('Economía', '', $ret);
+    $ret = str_replace('Folosofía', '', $ret);
+    $ret = str_replace('Física', '', $ret);
+    $ret = str_replace('Física', '', $ret);
+    $ret = str_replace('Matemática', '', $ret);
+    $ret = str_replace('Matemática (Agronomía)', '', $ret);
+    $ret = str_replace('Matemática Agronomía', '', $ret);
+    $ret = str_replace('Pensamiento Científico', '', $ret);
+    $ret = str_replace('Psicología', '', $ret);
+    $ret = str_replace('Química', '', $ret);
+    $ret = str_replace('Química (Agronomía)', '', $ret);
+    $ret = str_replace('Química (Agronomía)', '', $ret);
+    $ret = str_replace('Semiología', '', $ret);
+    $ret = str_replace('Sociologia', '', $ret);
+    $ret = str_replace('Taller de Semiología', '', $ret);
+
+
     $ret = str_replace('...', '', $ret);
     $ret = str_replace('Universidad de Buenos Aires', '', $ret);
     $ret = str_replace(' )', ')', $ret); // cambia los " )" por ")"
