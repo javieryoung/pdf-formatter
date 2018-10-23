@@ -150,7 +150,7 @@
 
       var deleteClicked = function() {
         edits.deleted.push(currentPage);
-        loadPage(currentPage+1);
+        nextClicked();
       }
 
       $( "body" ).keypress(function( event ) {
