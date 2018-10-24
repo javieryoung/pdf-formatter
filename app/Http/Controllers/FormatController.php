@@ -80,6 +80,7 @@ class FormatController extends Controller
     $ret = str_replace('Folosofía', '', $ret);
     $ret = str_replace('Física', '', $ret);
     $ret = str_replace('Física', '', $ret);
+    $ret = str_replace('Economia', '', $ret);
     $ret = str_replace('Matemática', '', $ret);
     $ret = str_replace('Matemática (Agronomía)', '', $ret);
     $ret = str_replace('Matemática Agronomía', '', $ret);
