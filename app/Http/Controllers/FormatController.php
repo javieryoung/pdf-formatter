@@ -164,7 +164,7 @@ class FormatController extends Controller
       $try++;
     }
     $pdf->Output('f', $output_path);
-    // unlink($request->path);
+    unlink($request->path);
     return Response::json(true, 200);
   }
 
