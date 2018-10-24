@@ -44,6 +44,7 @@
         	cursor: pointer;
         	padding: 5px;
         }
+        body.flipped { transition: all 1.5s ease-out; transform: rotate(180deg);}
         </style>
     </head>
     <body>
@@ -53,9 +54,11 @@
 
       <div style="float:left; margin-left: 10px;">
         Año: <input type="text" placeholder="Año" id="year" value="<?php echo $data['year']; ?>"><br><br>
-        Título: <input type="text" placeholder="Título" id="title" value="<?php echo $data['title']; ?>"> <span style="color: red; cursor: pointer;" id="deleteTitle">borrar</span><br><br>
-        <button id="nextPage"> Siguiente pagina </button>
-        <button id="deletePage" style="color: red;"> Eliminar pagina </button>
+        Título: <input type="text" style="width:500px;" placeholder="Título" id="title" value="<?php echo $data['title']; ?>"> <span style="color: red; cursor: pointer;" id="deleteTitle">borrar</span><br><br>
+        <button id="nextPage" style="width:150px;"> Siguiente pagina </button>
+        <button id="deletePage" style="width:150px; color: red;"> Eliminar pagina </button>
+        <button id="removeHeader" style="width:150px;"> Borrar Cabezal </button>
+        <button id="flip" style="width:150px;position: absolute;right: 10px;bottom: 10px;"> (╯°□°）╯︵ ┻━┻ </button>
       </div>
       <div class="debug">
         <?php if (isset($data['debug']) && strlen($data['debug']) > 0) var_dump($data['debug']); ?>
@@ -81,9 +84,9 @@
           {
             id: 2,
             x: 0,
-            y: height -30,
-            width: '500',
-            height: '30'
+            y: height -25,
+            width: '600',
+            height: '25'
           })
         },100)
         $("#img").selectAreas({
@@ -160,7 +163,31 @@
         if ( event.which == 101 ) {
            deleteClicked();
         }
+        if ( event.which == 122 ) {
+           removeHeader();
+        }
       });
+
+      var removeHeader = function() {
+        $('#img').selectAreas('add',
+        {
+          x: 0,
+          y: 55,
+          width: '600',
+          height: '20'
+        })
+      }
+
+      $('#removeHeader').on('click', removeHeader);
+
+
+      $('#flip').on('click', function() {
+        if ($('body').hasClass('flipped')) {
+          $('body').removeClass('flipped');
+        } else {
+          $('body').addClass('flipped');
+        }
+      })
       $('#nextPage').on('click', nextClicked)
       $('#deletePage').on('click', deleteClicked);
       $('#deleteTitle').on('click', function() {
