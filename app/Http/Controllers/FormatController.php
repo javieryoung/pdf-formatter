@@ -102,6 +102,7 @@ class FormatController extends Controller
     $ret = str_replace('()', '', $ret);
     $ret = preg_replace('/\s+/', ' ', $ret);
     $ret = str_replace('- -', '', $ret);
+    $ret = str_replace(' - ', '', $ret);
     return $ret;
   }
 
